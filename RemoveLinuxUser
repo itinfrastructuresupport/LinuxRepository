@@ -1,0 +1,20 @@
+# removeUser.yml
+# remove a user
+- name: remove user
+  hosts: webservers
+  remote_user: davidr
+  #become: true
+  #become_method: sudo
+  #become_user: root
+  vars:
+    login:   'test01'
+  tasks:
+        - name: remove a user
+          user:
+            name: "{{ login }}"
+            state: absent
+            remove: yes #remove home directory
+        - name: Remove sudoers file
+          file:
+            path: "/etc/sudoers.d/{{ login }}"
+            state: absent
