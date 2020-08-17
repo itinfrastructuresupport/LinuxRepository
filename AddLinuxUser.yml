@@ -1,7 +1,7 @@
 # createUser.yml
 # create a user
 - name: create user
-  hosts: webservers
+  # hosts: webservers
   remote_user: davidr
   #become: true
   #become_method: sudo
