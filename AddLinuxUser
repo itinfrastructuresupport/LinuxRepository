@@ -1,0 +1,40 @@
+# createUser.yml
+# create a user
+- name: create user
+  hosts: webservers
+  remote_user: davidr
+  #become: true
+  #become_method: sudo
+  #become_user: root
+# Define variables
+  vars:
+    login:              'test01'
+    gecos:              'My Test User'
+    shell:              '/bin/bash'
+    supplementalGroups: 'apache'
+    # created password prior with:
+    # python -c 'import crypt,getpass; print crypt.crypt(getpass.getpass())'
+    password:    '$6$eMcTVqnJyI.d2Wo7$Gk2Fd4TA09AvXPM5TZIwOZXFaSfL2C2bJBvOUfwWZzBqkRfSgmLPuQgSPm2/rhdYiS6D52U9.ZyRJ4U31iYcp1'
+  tasks:
+        - name: create a user
+          user:
+            name: "{{ login }}"  #login id
+            comment: "{{ gecos }}" #gecos field
+            shell: "{{ shell }}"
+            password: "{{ password }}"
+            groups: "{{ supplementalGroups }}"
+            append: yes
+            update_password: always
+        - name: Add sudoers file
+          file:
+            owner: root
+            group: root
+            mode: 0400
+            path: "/etc/sudoers.d/{{ login }}"
+            state: touch
+        - name: Add suders data
+          blockinfile:
+            path: "/etc/sudoers.d/{{ login }}"
+            block: |
+              User_Alias {{ login|upper }} = %{{ login }}
+              {{ login|upper }} ALL=(ALL)      ALL
