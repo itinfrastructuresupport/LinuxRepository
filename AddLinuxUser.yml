@@ -9,7 +9,7 @@
 # Define variables
   vars:
     # user:              'test01'
-    # gecos:              'My Test User'
+     gecos:              
     # shell:              '/bin/bash'
     # supplementalGroups: 'apache'
     # created password prior with:
