@@ -2,7 +2,7 @@
 # create a user
 - name: create user
   hosts: all
-  remote_user: davidr
+  remote_user:
   #become: true
   #become_method: sudo
   #become_user: root
