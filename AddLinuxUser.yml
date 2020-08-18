@@ -8,10 +8,10 @@
   #become_user: root
 # Define variables
   vars:
-    # user:              'test01'
+     user:              
      gecos:              
-    # shell:              '/bin/bash'
-    # supplementalGroups: 'apache'
+     shell:              
+     supplementalGroups: 
     # created password prior with:
     # python -c 'import crypt,getpass; print crypt.crypt(getpass.getpass())'
     # pass:    '$6$eMcTVqnJyI.d2Wo7$Gk2Fd4TA09AvXPM5TZIwOZXFaSfL2C2bJBvOUfwWZzBqkRfSgmLPuQgSPm2/rhdYiS6D52U9.ZyRJ4U31iYcp1'
