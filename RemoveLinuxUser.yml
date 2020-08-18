@@ -1,13 +1,13 @@
 # removeUser.yml
 # remove a user
 - name: remove user
-  hosts: webservers
-  remote_user: davidr
-  #become: true
-  #become_method: sudo
-  #become_user: root
+  hosts: all
+  remote_user: 
+  become: true
+  become_method: sudo
+  become_user: root
   vars:
-    login:   'test01'
+    login:   
   tasks:
         - name: remove a user
           user:
