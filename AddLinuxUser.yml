@@ -8,7 +8,7 @@
   #become_user: root
 # Define variables
   vars:
-     user:              
+     login:              
      gecos:              
      shell:              
      supplementalGroups: 
