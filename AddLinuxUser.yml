@@ -25,16 +25,16 @@
             groups: "{{ supplementalGroups }}"
             append: yes
             update_password: always
-        - name: Add sudoers file
-          file:
-            owner: root
-            group: root
-            mode: 0400
-            path: "/etc/sudoers.d/{{ login }}"
-            state: touch
-        - name: Add suders data
-          blockinfile:
-            path: "/etc/sudoers.d/{{ login }}"
-            block: |
-              User_Alias {{ login|upper }} = %{{ login }}
-              {{ login|upper }} ALL=(ALL)      ALL
+       # - name: Add sudoers file
+          #file:
+           # owner: root
+           # group: root
+           # mode: 0400
+           # path: "/etc/sudoers.d/{{ login }}"
+           # state: touch
+       # - name: Add suders data
+         # blockinfile:
+          #  path: "/etc/sudoers.d/{{ login }}"
+          #  block: |
+           #   User_Alias {{ login|upper }} = %{{ login }}
+            #  {{ login|upper }} ALL=(ALL)      ALL
